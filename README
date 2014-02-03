@@ -8,7 +8,7 @@ make
 ftp.sra.ebi.ac.uk/vol1/fastq/ERR015/ERR015609/ERR015609_1.fastq.gz
 #(about 1.5 G)
 
-#find insertion element and save it in fasta format as "IS6110.txt"
+#find insertion element and save it in fasta format or use sample insertion sequence "IS6110.txt"
 
 
 #USAGE
