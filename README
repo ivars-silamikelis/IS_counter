@@ -5,7 +5,7 @@
 #go to destination directory and type
 make
 #download data from 
-#ftp.sra.ebi.ac.uk/vol1/fastq/ERR015/ERR015609/ERR015609_1.fastq.gz
+ftp.sra.ebi.ac.uk/vol1/fastq/ERR015/ERR015609/ERR015609_1.fastq.gz
 #(about 1.5 G)
 
 #find insertion element and save it in fasta format as "IS6110.txt"
