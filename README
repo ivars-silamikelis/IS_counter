@@ -1,1 +1,19 @@
-Counts repetitive elements in next-generation sequencing data!
+#Counts repetitive elements in next-generation sequencing data!
+#Idea represented here http://www.plosone.org/article/info%3Adoi%2F10.1371%2Fjournal.pone.0030008
+
+#INSTALLATION
+#go to destination directory and type
+make
+#download data from 
+#ftp.sra.ebi.ac.uk/vol1/fastq/ERR015/ERR015609/ERR015609_1.fastq.gz
+#(about 1.5 G)
+
+#find insertion element and save it in fasta format as "IS6110.txt"
+
+
+#USAGE
+zcat ERR015609_1.fastq.gz|perl -ne '$seq=<>;<>;<>;print $seq'|./IS_find ERR015609_1 IS6110.txt
+
+python plot_clusters.py ERR015609_1
+
+#done

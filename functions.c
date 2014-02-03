@@ -2,9 +2,11 @@
 #include <stdlib.h>
 #include <string.h>
 #include "functions.h"
-char * read_is_element()
+char * read_is_element(char * seqname)
 // Ielasa IS6110.txt fasta formātā un atgriež dns sekvenci
 { 
+  char isname[1000]="";
+  strcat(isname, seqname);
   static char * sequence;
   FILE *filepointer; 
   //static char sequence, *temp;
@@ -16,7 +18,7 @@ char * read_is_element()
   int is_sequence=0;
   int character;
   int nnuc=0;
-  filepointer=fopen("/home/ivars/Learn/C/find_IS/IS6110.txt","read");
+  filepointer=fopen(isname,"read"); //"/home/ivars/Learn/C/find_IS/IS6110.txt"
   while ((character=fgetc(filepointer))!=EOF){
     if (is_sequence==1 && character!='\n' && character!=EOF){
       sequence[nnuc]=character;

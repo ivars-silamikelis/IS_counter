@@ -2,14 +2,21 @@
 #include <stdlib.h>
 #include <string.h>
 #define BUF_SIZE 1024
-char * read_is_element(void);
+char * read_is_element(char * seqname);
 void get_fragment(int start, int end,char * fragment, char * sequence);
 void create_revcom(char * revcom,char * sequence, int last_index);
 void inplace_reverse(char * str);
 int main(int argc, char *argv[])
-{
+{ 
+  if (argc==1){
+    printf("Please provide output file prefix and insertion sequence filename\n\n");
+    printf("-----------EXAMPLE---------------\n\n");
+    printf("./IS_find sample_name IS6110.txt\n");
+    return 0;
+  }
   char start_filename[200]="";
   char end_filename[200]="";
+  char * is_name=strdup(argv[2]);
   //printf("%s\n", argv[1]);
   strcat(start_filename, argv[1]);
   //printf("%s\n", argv[1]);
@@ -40,8 +47,10 @@ int main(int argc, char *argv[])
   char * rev_rev_end=malloc(sizeof(char));
   int fasta_last_index;
   int read_last_nuc_index; 
+
+
   //Atmiņā tiek ielasīta IS6110 sekvence
-  sequence=read_is_element();
+  sequence=read_is_element(is_name);
   fasta_last_index=strlen(sequence)-1;
   //Atmiņā tiek ielasītas sekvences no bam vai fastq faila
   while(fgets (read_sequence, BUF_SIZE, stdin)){
@@ -153,6 +162,7 @@ int main(int argc, char *argv[])
   free(read_sequence);
   free(rev_rev_start);
   free(rev_rev_end);
+  free(is_name);
   fclose(fe);
   fclose(fs);
   return 0;
